@@ -1,0 +1,10 @@
+Place Order : Either all of these execute in transaction or all should revert to initial state in case of any exception
+1. Get cart item of user and get total amount
+2. Create a record for Order
+3. Reduce the stock(product or quantity)
+4. Clear the cart
+
+// There are other actions : 
+5. Deduct the payment
+6. Inform about order to seelrs and buyers
+7.Inform to couriers to collect order

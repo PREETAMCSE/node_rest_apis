@@ -1,0 +1,10 @@
+1. ProductController :
+  Get Products
+  Add a Products
+  Get one Products
+  Rate product
+  Filter product
+
+  User ProductController
+   Signup - Email, Name, Password, TypeOfUser(Customer, seller)
+   SignIn - (Email, Password)

@@ -1,0 +1,48 @@
+// Find average ratings of a product
+
+db.products.aggregate([
+    // Create document for ratings
+    {
+        $unwind:"$ratings"
+    },
+    // Group ratings per product and get the average
+    {
+        $group : {
+            _id : "$name",
+            averageRating : {$avg: "$ratings.rating"}
+        }
+    }
+])
+
+// Find name and count of ratings of the product
+db.products.aggregate([
+{
+    $project: {name: 1, countOfRating:{ 
+        $cond: {if: {$isArray:"$ratings"}
+        , then: {$size: "$ratings" }, else :0 }}}
+}
+])
+
+// Find the product with highest number of ratings 
+
+db.products.aggregate([
+{
+    $project: {name: 1, countOfRating:{ 
+        $cond: {if: {$isArray:"$ratings"}
+        , then: {$size: "$ratings" }, else :0 }}}
+},
+// Sort the collection
+{
+    $sort : {countOfRating : -1}
+},
+{
+    $limit : 1
+}
+])
+
+
+
+// Command to start mongo db replica set 
+mongod --replSet rs0 --dbpath="C:\Program Files\MongoDB"
+
+than : rs.initiate() to connect to replica set
