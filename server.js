@@ -13,7 +13,7 @@ import loggerMiddleware from "./src/middlewares/logger.middleware.js";
 import { ApplicationError } from "./src/error-handler/applicationError.js";
 import { connectToMongoDB }  from "./src/config/mongodb.js";
 import orderRouter from "./src/features/order/order.routes.js";
-import { connectUsingMongoose } from "./src/config/mongooseconfig.js";
+import { connectUsingMongoose } from "./src/config/mongooseConfig.js";
 import mongoose from "mongoose";
 import likeRouter from "./src/features/like/like.router.js";
 
